@@ -101,12 +101,14 @@ Future<Country?> showCountryPickerDialog(
   Widget? title,
   double cornerRadius = 35,
   bool focusSearchBox = false,
-  String? cancelText,
+  Widget? cancelText,
+  Color? backgroundColor,
 }) {
   return showDialog<Country?>(
       context: context,
       barrierDismissible: true,
       builder: (_) => Dialog(
+            backgroundColor: backgroundColor ?? Colors.white,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
               Radius.circular(cornerRadius),
@@ -118,10 +120,10 @@ Future<Country?> showCountryPickerDialog(
                   children: <Widget>[
                     Positioned(
                       right: 8,
-                      top: 2,
+                      top: 0,
                       bottom: 0,
                       child: TextButton(
-                          child: Text(cancelText ?? 'Cancel'),
+                          child: cancelText ?? Text('Cancel'),
                           onPressed: () => Navigator.pop(context)),
                     ),
                     Center(
