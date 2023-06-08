@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:country_calling_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_sim_country_code/flutter_sim_country_code.dart';
 
 import './country.dart';
@@ -43,9 +42,9 @@ Future<Country?> getCountryByCountryCode(
 Future<Country?> showCountryPickerSheet(BuildContext context,
     {Widget? title,
     Widget? cancelWidget,
-    double cornerRadius: 35,
-    bool focusSearchBox: false,
-    double heightFactor: 0.9}) {
+    double cornerRadius = 35,
+    bool focusSearchBox = false,
+    double heightFactor = 0.9}) {
   assert(heightFactor <= 0.9 && heightFactor >= 0.4,
       'heightFactor must be between 0.4 and 0.9');
   return showModalBottomSheet<Country?>(
@@ -100,8 +99,9 @@ Future<Country?> showCountryPickerSheet(BuildContext context,
 Future<Country?> showCountryPickerDialog(
   BuildContext context, {
   Widget? title,
-  double cornerRadius: 35,
-  bool focusSearchBox: false,
+  double cornerRadius = 35,
+  bool focusSearchBox = false,
+  String? cancelText,
 }) {
   return showDialog<Country?>(
       context: context,
@@ -118,10 +118,10 @@ Future<Country?> showCountryPickerDialog(
                   children: <Widget>[
                     Positioned(
                       right: 8,
-                      top: 4,
+                      top: 2,
                       bottom: 0,
                       child: TextButton(
-                          child: Text('Cancel'),
+                          child: Text(cancelText ?? 'Cancel'),
                           onPressed: () => Navigator.pop(context)),
                     ),
                     Center(
