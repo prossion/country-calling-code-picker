@@ -79,13 +79,17 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.amber,
               onPressed: _onPressed,
             ),
-            SizedBox(height: 24,),
+            SizedBox(
+              height: 24,
+            ),
             MaterialButton(
               child: Text('Select Country using bottom sheet'),
               color: Colors.orange,
               onPressed: _onPressedShowBottomSheet,
             ),
-            SizedBox(height: 24,),
+            SizedBox(
+              height: 24,
+            ),
             MaterialButton(
               child: Text('Select Country using dialog'),
               color: Colors.deepOrangeAccent,

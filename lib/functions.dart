@@ -116,28 +116,23 @@ Future<Country?> showCountryPickerDialog(
             child: Column(
               children: <Widget>[
                 SizedBox(height: 16),
-                Stack(
-                  children: <Widget>[
-                    Positioned(
-                      right: 8,
-                      top: 0,
-                      bottom: 0,
-                      child: TextButton(
-                          child: cancelText ?? Text('Cancel'),
-                          onPressed: () => Navigator.pop(context)),
-                    ),
-                    Center(
-                      child: title ??
-                          Text(
-                            'Choose region',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
-                            ),
+                Padding(
+                  padding: EdgeInsets.only(left: 15, right: 15),
+                  child: Row(children: [
+                    title ??
+                        Text(
+                          'Choose region',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.w500,
                           ),
-                    ),
-                  ],
+                        ),
+                    Spacer(),
+                    TextButton(
+                        child: cancelText ?? Text('Cancel'),
+                        onPressed: () => Navigator.pop(context)),
+                  ]),
                 ),
                 SizedBox(height: 16),
                 Expanded(
